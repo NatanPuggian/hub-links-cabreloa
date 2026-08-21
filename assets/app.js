@@ -108,42 +108,4 @@
     avisos.appendChild(el);
   });
   $('#copyright').textContent = rod.copyright || '';
-
-  /* ---------- Gate de idade ---------- */
-  var g = C.ageGate || {};
-  var gate = $('#gate');
-  var CHAVE = 'bio_idade_ok';
-
-  function jaConfirmou() {
-    try {
-      var v = localStorage.getItem(CHAVE);
-      if (!v) return false;
-      var dias = g.lembrarDias == null ? 30 : g.lembrarDias;
-      return (Date.now() - Number(v)) < dias * 864e5;
-    } catch (e) {
-      return false; // localStorage bloqueado (aba anônima, cookies off)
-    }
-  }
-
-  function fecharGate() {
-    try { localStorage.setItem(CHAVE, String(Date.now())); } catch (e) {}
-    gate.hidden = true;
-    document.body.classList.remove('gate-aberto');
-  }
-
-  if (!g.ativo || jaConfirmou()) {
-    gate.hidden = true;
-  } else {
-    $('#gate-titulo').textContent = g.titulo || 'Verificação de Idade';
-    $('#gate-pergunta').textContent = g.pergunta || 'Você tem 18 anos ou mais?';
-    $('#gate-rodape').textContent = g.rodape || '';
-    $('#gate-sim').textContent = g.labelSim || 'Sim, tenho 18+';
-    $('#gate-nao').textContent = g.labelNao || 'Não';
-    document.body.classList.add('gate-aberto');
-    $('#gate-sim').addEventListener('click', fecharGate);
-    $('#gate-nao').addEventListener('click', function () {
-      window.location.href = g.urlRecusa || 'https://www.google.com';
-    });
-    $('#gate-sim').focus();
-  }
 })();

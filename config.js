@@ -12,20 +12,6 @@ window.BIO_CONFIG = {
     avatar: "img/avatar.webp"
   },
 
-  /* ---------- Gate de idade (18+) ----------
-     Igual ao da referência. A resposta fica salva no navegador
-     por `lembrarDias`, pra não perguntar toda visita. */
-  ageGate: {
-    ativo: true,
-    titulo: "Verificação de Idade",
-    pergunta: "Você tem 18 anos ou mais?",
-    rodape: "Ao entrar, você confirma ter idade legal para acessar este conteúdo.",
-    labelSim: "Sim, tenho 18+",
-    labelNao: "Não",
-    urlRecusa: "https://www.google.com",
-    lembrarDias: 30
-  },
-
   /* ---------- Cards de link ----------
      Ordem = ordem na tela. O primeiro com `destaque: true`
      ganha o tratamento verde.

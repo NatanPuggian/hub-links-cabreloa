@@ -3,9 +3,9 @@
 Página de links pro Instagram do Cabreloa. HTML + CSS + JS puro, sem build,
 sem framework, sem dependência.
 
-Estrutura inspirada na referência (raquelmaia.com.br/linkbio): gate de idade
-18+ na entrada, avatar circular, bio curta, cards de link empilhados, fileira
-de redes sociais e rodapé de jogo responsável. O visual segue a identidade da
+Estrutura inspirada na referência (raquelmaia.com.br/linkbio): avatar circular,
+bio curta, cards de link empilhados, fileira de redes sociais e rodapé de jogo
+responsável. O visual segue a identidade da
 LP `free.cabreloa` (fundo escuro + verde, Bebas Neue + Inter), não o da
 referência — é a bio dele, tem que parecer dele.
 
@@ -54,16 +54,16 @@ renderizado**, e um aviso aparece no console. Isso é de propósito: é melhor o
 card sumir do que o seguidor clicar e cair em lugar nenhum. Por isso os
 `#TROCAR-...` no config não aparecem na página até serem preenchidos.
 
-## Gate de idade
+## Sobre o gate de idade
 
-Bloqueia a página até confirmar 18+. A resposta fica salva no navegador por
-`ageGate.lembrarDias` (padrão 30), pra não perguntar a cada visita. Quem
-responde "Não" vai pra `ageGate.urlRecusa`.
+A referência tem um modal de "você tem 18 anos ou mais?" na entrada. Chegou a
+ser implementado aqui e foi **removido a pedido** — a página abre direto nos
+links, sem interstício.
 
-Se o navegador bloquear `localStorage` (aba anônima, cookies desligados), o
-gate simplesmente pergunta de novo — não quebra.
+O aviso +18 continua no rodapé, junto com os avisos de jogo responsável.
 
-Pra desligar: `ageGate.ativo: false`.
+Se um dia precisar de volta, está no histórico do git (commit
+`8d9cd00`), é só reverter a remoção.
 
 ## Deploy na Vercel
 
