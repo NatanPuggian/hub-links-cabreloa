@@ -1,0 +1,295 @@
+/* ============================================================
+   Link-in-bio do Cabreloa
+   CSS escrito à mão de propósito: essa página recebe tráfego de
+   Instagram no 4G, então não vale carregar um build de framework
+   pra montar meia dúzia de cards.
+   Tokens iguais aos da LP (free.cabreloa) pra manter a identidade.
+   ============================================================ */
+
+:root {
+  --bg:          #0a0a0a;
+  --card:        #141414;
+  --card-hover:  #1c1c1c;
+  --border:      #262626;
+  --fg:          #fafafa;
+  --muted:       #a3a3a3;
+  --green:       #00c853;
+  --green-light: #00e676;
+  --radius:      14px;
+  --max:         420px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  /* brilho verde discreto no topo, ecoando o hero da LP */
+  background-image: radial-gradient(
+    120% 55% at 50% 0%,
+    rgba(0, 200, 83, 0.14) 0%,
+    rgba(0, 200, 83, 0.04) 40%,
+    transparent 72%
+  );
+  background-repeat: no-repeat;
+}
+
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 20px 32px;
+}
+
+/* ---------- Perfil ---------- */
+.perfil { text-align: center; margin-bottom: 28px; }
+
+.avatar {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+  margin: 0 auto 16px;
+  border: 3px solid var(--green);
+  box-shadow: 0 0 0 6px rgba(0, 200, 83, 0.12), 0 8px 28px rgba(0, 0, 0, 0.6);
+}
+
+.nome {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+
+.handle {
+  color: var(--green-light);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.bio {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  margin: 0 auto;
+  max-width: 34ch;
+}
+
+/* ---------- Cards de link ---------- */
+.links { display: flex; flex-direction: column; gap: 12px; }
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.card:hover { background: var(--card-hover); border-color: rgba(0, 200, 83, 0.5); }
+.card:active { transform: scale(.985); }
+
+.card-destaque {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+  border-color: transparent;
+  color: #000;
+}
+.card-destaque:hover {
+  background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+  border-color: transparent;
+}
+.card-destaque .card-sub { color: rgba(0, 0, 0, .72); }
+.card-destaque .card-icone { background: rgba(0, 0, 0, .16); border-color: rgba(0, 0, 0, .2); }
+.card-destaque .card-icone svg { stroke: #000; }
+
+.card-icone {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: rgba(0, 200, 83, .14);
+  border: 1px solid rgba(0, 200, 83, .3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-icone svg { width: 21px; height: 21px; stroke: var(--green-light); }
+
+.card-texto { min-width: 0; flex: 1; }
+
+.card-titulo {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.1875rem;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+.card-sub {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.card-seta { flex-shrink: 0; opacity: .5; }
+.card-seta svg { width: 18px; height: 18px; }
+
+/* Card em modo banner (quando existe arte pro link) */
+.card-banner {
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  border-radius: var(--radius);
+}
+.card-banner img { width: 100%; height: auto; }
+
+/* ---------- Redes sociais ---------- */
+.sociais {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.social {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.social:hover {
+  border-color: var(--green);
+  background: var(--card-hover);
+  transform: translateY(-2px);
+}
+.social svg { width: 21px; height: 21px; fill: var(--fg); }
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.selo18 {
+  display: inline-block;
+  border: 1px solid var(--green);
+  color: var(--green-light);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.rodape p {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin: 0 0 7px;
+  line-height: 1.45;
+}
+
+.copyright { margin-top: 14px !important; opacity: .6; }
+
+/* ---------- Gate de idade ---------- */
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(6, 6, 6, .94);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.gate[hidden] { display: none; }
+
+.gate-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 30px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .7);
+}
+
+.gate-titulo {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 6px;
+}
+
+.gate-pergunta { color: var(--fg); font-size: 1rem; margin: 0 0 22px; }
+
+.gate-botoes { display: flex; gap: 10px; }
+
+.gate-btn {
+  flex: 1;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 13px 12px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+.gate-btn:hover { background: var(--card-hover); border-color: var(--muted); }
+
+.gate-sim {
+  background: var(--green);
+  border-color: var(--green);
+  color: #000;
+}
+.gate-sim:hover { background: var(--green-light); border-color: var(--green-light); }
+
+.gate-rodape {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  margin: 18px 0 0;
+  line-height: 1.45;
+}
+
+/* Trava o scroll do fundo enquanto o gate está aberto */
+body.gate-aberto { overflow: hidden; }
+
+/* ---------- Entrada suave ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .anim {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: sobe .5s ease forwards;
+  }
+  @keyframes sobe { to { opacity: 1; transform: translateY(0); } }
+}
+
+@media (min-width: 480px) {
+  .wrap { padding-top: 56px; }
+  .nome { font-size: 2.75rem; }
+}

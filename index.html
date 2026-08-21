@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cabreloa | Links</title>
+    <meta name="description" content="Todos os links do Cabreloa, o Mago: grupo grátis no Telegram, VIP, odds altas e redes sociais." />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="img/favicon.ico" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3LCDCQZPC3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3LCDCQZPC3');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preload" as="image" href="img/avatar.webp" fetchpriority="high" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&display=swap" />
+    <link rel="stylesheet" href="assets/style.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cabreloa | Links" />
+    <meta property="og:description" content="Todos os links do Cabreloa, o Mago: grupo grátis no Telegram, VIP, odds altas e redes sociais." />
+    <meta property="og:image" content="img/avatar.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1344726187578487&ev=PageView&noscript=1" alt="" /></noscript>
+
+    <!-- ===== GATE DE IDADE ===== -->
+    <div id="gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-titulo">
+      <div class="gate-box">
+        <h2 class="gate-titulo" id="gate-titulo">Verificação de Idade</h2>
+        <p class="gate-pergunta" id="gate-pergunta">Você tem 18 anos ou mais?</p>
+        <div class="gate-botoes">
+          <button class="gate-btn gate-sim" id="gate-sim" type="button">Sim, tenho 18+</button>
+          <button class="gate-btn" id="gate-nao" type="button">Não</button>
+        </div>
+        <p class="gate-rodape" id="gate-rodape"></p>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <!-- ===== PERFIL ===== -->
+      <header class="perfil">
+        <img class="avatar anim" id="avatar" src="img/avatar.webp" alt="" width="104" height="104" fetchpriority="high" />
+        <h1 class="nome anim" id="nome" style="animation-delay:60ms"></h1>
+        <p class="handle anim" id="handle" style="animation-delay:100ms"></p>
+        <p class="bio anim" id="bio" style="animation-delay:140ms"></p>
+      </header>
+
+      <!-- ===== LINKS (montados pelo config.js) ===== -->
+      <nav class="links" id="links" aria-label="Meus links"></nav>
+
+      <!-- ===== REDES ===== -->
+      <nav class="sociais" id="sociais" aria-label="Redes sociais"></nav>
+
+      <!-- ===== RODAPÉ ===== -->
+      <footer class="rodape">
+        <span class="selo18">+18</span>
+        <div id="avisos"></div>
+        <p class="copyright" id="copyright"></p>
+      </footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="assets/app.js"></script>
+
+    <!-- Meta Pixel — depois do first paint pra nao atrapalhar o LCP -->
+    <script>
+      window.addEventListener('load', function () {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1344726187578487');
+        fbq('track', 'PageView');
+      });
+    </script>
+  </body>
+</html>
